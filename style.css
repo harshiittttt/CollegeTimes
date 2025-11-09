@@ -1,0 +1,222 @@
+:root {
+  --paper-bg: #faf8f4;
+}
+
+body {
+  background-color: var(--paper-bg);
+  color: #222;
+  font-family: 'Inter', sans-serif;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px),
+    radial-gradient(circle at 30% 20%, rgba(0,0,0,0.015), transparent 40%);
+  background-size: 30px 30px, 30px 30px, 100% 100%;
+}
+
+/* HEADINGS */
+h1, h2, h3, h4 {
+  font-family: 'DM Serif Display', serif;
+  letter-spacing: 0.5px;
+}
+
+a {
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+/* NAVBAR */
+.navbar {
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #d6d3d1;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 800;
+  text-shadow: 1px 1px 0 #00000020;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  font-weight: 500;
+}
+
+.nav-links a {
+  color: #222;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background: #ec4899;
+  transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 5rem 1rem;
+  border-bottom: 1px solid #d6d3d1;
+}
+
+.hero h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  color: #555;
+  font-size: 1.1rem;
+}
+
+/* SECTION */
+.section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 5rem 1.5rem;
+  text-align: center;
+}
+
+.section h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  display: inline-block;
+  border-bottom: 3px solid #111;
+  padding-bottom: 4px;
+  text-shadow: 1px 1px 0 #00000010;
+}
+
+/* NEWS */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+  text-align: left;
+}
+
+.card {
+  background-color: rgba(255,255,255,0.95);
+  border: 1px solid #e7e5e4;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.card h4 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* CLUBS */
+.club-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.club-card {
+  background-color: white;
+  border: 1px solid #e7e5e4;
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: 0.3s ease;
+}
+
+.club-card:hover {
+  transform: scale(1.05);
+  background: #fdfcfb;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  border-top: 1px solid #d6d3d1;
+  background: rgba(255,255,255,0.9);
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* Subtle background grid pattern for that "newspaper" texture */
+body {
+  background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Remove link underline globally */
+a {
+  text-decoration: none;
+}
+
+/* Improve font look */
+h1, h2, h3, h4 {
+  letter-spacing: 0.5px;
+}
+
+/* Add gentle hover tilt effect on cards */
+section:hover {
+  transform: scale(1.01);
+  transition: 0.2s ease-in-out;
+}
+
+/* CLUBS PAGE CUSTOM */
+.club-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.club-btn {
+  background: linear-gradient(135deg, #ec4899, #8b5cf6);
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.club-btn:hover {
+  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}

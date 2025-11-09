@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schedule | CollegeTimes 🗓️</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <h1 class="logo">CollegeTimes 🗞️</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        
+        <li><a href="lostandfound.html">Lost & Found</a></li>
+        <li><a href="clubs.html">Clubs</a></li>
+        <li><a href="schedule.html" style="color:#ec4899; font-weight:600;">Schedules</a></li>
+        <li><a href="community.html">Community</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <section class="hero">
+    <h2>📅 Class Schedule</h2>
+    <p>Check your semester’s routine — crisp, clear, and always up-to-date!</p>
+  </section>
+
+  <!-- DROPDOWN -->
+  <section class="section">
+    <h3>Select Your Class</h3>
+    <div class="flex justify-center mt-6">
+      <select id="classSelect" class="border border-gray-300 rounded-lg px-5 py-3 text-lg bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-pink-400">
+        <option value="">-- Select Your Class --</option>
+        <option value="3cse3">3rd Sem - CSE 3</option>
+        <option value="4cse1">4th Sem - CSE 1</option>
+        <option value="4cse2">4th Sem - CSE 2</option>
+        <option value="3it1">3rd Sem - IT 1</option>
+      </select>
+    </div>
+
+    <!-- SCHEDULE TABLE -->
+    <div id="scheduleContainer" class="hidden mt-10">
+      <h3 id="classTitle" class="text-2xl font-semibold mb-4 text-center"></h3>
+      <div class="overflow-x-auto bg-white/80 rounded-2xl border border-gray-200 shadow-md">
+        <table class="w-full border-collapse">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="py-3 px-4 border">Day</th>
+              <th class="py-3 px-4 border">9:00 - 10:00</th>
+              <th class="py-3 px-4 border">10:00 - 11:00</th>
+              <th class="py-3 px-4 border">11:15 - 12:15</th>
+              <th class="py-3 px-4 border">12:15 - 1:15</th>
+              <th class="py-3 px-4 border">2:00 - 3:00</th>
+              <th class="py-3 px-4 border">3:00 - 4:00</th>
+            </tr>
+          </thead>
+          <tbody id="scheduleBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 CollegeTimes | Crafted with ❤️ by Team CT</p>
+  </footer>
+
+  <!-- JS LOGIC -->
+  <script>
+    const schedules = {
+      "3cse3": {
+        title: "3rd Semester - CSE 3",
+        data: [
+          ["Monday", "DSA", "DBMS", "Break", "Maths", "OS", "Library"],
+          ["Tuesday", "COA", "DSA", "DBMS", "Break", "OS Lab", "OS Lab"],
+          ["Wednesday", "Maths", "DBMS", "DSA", "Break", "Sports", "Sports"],
+          ["Thursday", "COA", "DSA Lab", "DSA Lab", "Break", "DBMS", "DBMS"],
+          ["Friday", "Maths", "COA", "OS", "Break", "DBMS Lab", "DBMS Lab"]
+        ]
+      },
+      "4cse1": {
+        title: "4th Semester - CSE 1",
+        data: [
+          ["Monday", "AI", "ML", "Break", "DBMS", "CN", "CN"],
+          ["Tuesday", "DBMS Lab", "DBMS Lab", "Break", "AI", "CN", "AI"],
+          ["Wednesday", "CN", "DBMS", "AI", "Break", "PE", "PE"],
+          ["Thursday", "AI Lab", "AI Lab", "Break", "DBMS", "CN", "ML"],
+          ["Friday", "ML", "ML", "Break", "CN", "DBMS", "Project Work"]
+        ]
+      },
+      "4cse2": {
+        title: "4th Semester - CSE 2",
+        data: [
+          ["Monday", "AI", "DBMS", "Break", "ML", "CN", "PE"],
+          ["Tuesday", "DBMS Lab", "DBMS Lab", "Break", "CN", "AI", "AI"],
+          ["Wednesday", "ML", "DBMS", "AI", "Break", "CN Lab", "CN Lab"],
+          ["Thursday", "AI", "ML", "Break", "DBMS", "CN", "Project"],
+          ["Friday", "PE", "DBMS", "Break", "CN", "AI", "ML"]
+        ]
+      },
+      "3it1": {
+        title: "3rd Semester - IT 1",
+        data: [
+          ["Monday", "DSA", "CN", "Break", "Maths", "OS", "AI"],
+          ["Tuesday", "OS", "CN", "Break", "DBMS", "AI", "AI"],
+          ["Wednesday", "Maths", "DBMS", "DSA", "Break", "Sports", "Sports"],
+          ["Thursday", "COA", "DSA Lab", "DSA Lab", "Break", "DBMS", "DBMS"],
+          ["Friday", "Maths", "COA", "OS", "Break", "DBMS Lab", "DBMS Lab"]
+        ]
+      }
+    };
+
+    const select = document.getElementById('classSelect');
+    const scheduleContainer = document.getElementById('scheduleContainer');
+    const scheduleBody = document.getElementById('scheduleBody');
+    const classTitle = document.getElementById('classTitle');
+
+    select.addEventListener('change', () => {
+      const value = select.value;
+      if (!value) {
+        scheduleContainer.classList.add('hidden');
+        return;
+      }
+
+      const schedule = schedules[value];
+      scheduleContainer.classList.remove('hidden');
+      classTitle.textContent = schedule.title;
+
+      // Clear and repopulate
+      scheduleBody.innerHTML = "";
+      schedule.data.forEach(row => {
+        const tr = document.createElement("tr");
+        row.forEach(cell => {
+          const td = document.createElement("td");
+          td.textContent = cell;
+          td.className = "py-3 px-4 border text-center";
+          tr.appendChild(td);
+        });
+        scheduleBody.appendChild(tr);
+      });
+    });
+  </script>
+
+</body>
+</html>
