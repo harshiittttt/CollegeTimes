@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community | CollegeTimes 🗞️</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="community.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <h1 class="logo">CollegeTimes 🗞️</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="lostandfound.html">Lost & Found</a></li>
+        <li><a href="clubs.html">Clubs</a></li>
+        <li><a href="schedule.html">Schedules</a></li>
+        <li><a href="community.html" style="color:#ec4899; font-weight:600;">Community</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h2>Campus Community 💬</h2>
+    <p>Speak your mind, share memes, or post updates — your campus Reddit!</p>
+  </section>
+
+  <!-- COMMUNITY SECTION -->
+  <section class="section community">
+    <h3>🗨️ Your Post</h3>
+
+    <!-- Post Form -->
+    <div class="post-form">
+      <input id="postTitle" type="text" placeholder="What's the title?" class="input" />
+      <textarea id="postContent" placeholder="Share your thoughts..." class="textarea"></textarea>
+      <button id="postButton" class="btn">Post</button>
+    </div>
+
+    <h3>🗨️ Recent Posts</h3>
+
+    <!-- Posts Feed -->
+    <div id="postsContainer" class="posts-grid">
+      <!-- Example post -->
+      <div class="post">
+        <h4 class="post-title">College Fest Highlights</h4>
+        <p class="post-content">What an amazing experience at TechWeek 2025! 🎉</p>
+        
+        <!-- Comment Section -->
+        <div class="comments-section">
+          <h5>Comments</h5>
+          <div class="comment-form">
+            <input type="text" placeholder="Add a comment..." class="comment-input">
+            <button class="comment-btn">Post</button>
+          </div>
+
+          <div class="comment">
+            <p><strong>Riya:</strong> Totally agree! It was fire 🔥</p>
+            <button class="reply-btn">Reply</button>
+            
+            <!-- Reply Section -->
+            <div class="reply-form hidden">
+              <input type="text" placeholder="Write a reply..." class="reply-input">
+              <button class="reply-post-btn">Post Reply</button>
+            </div>
+
+            <div class="reply">
+              <p><strong>Arjun:</strong> Can’t wait for next year’s fest 😍</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 CollegeTimes | Crafted with ❤️ by Team CT</p>
+  </footer>
+
+  <script type="module" src="community.js"></script>
+</body>
+</html>
