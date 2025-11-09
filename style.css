@@ -228,11 +228,30 @@ section:hover {
 }
 
 /* CLUBS PAGE CUSTOM */
-.club-card img {
-  width: 100%;
+
+.club-card>:nth-child(1){
+  width:100%;
   height: 180px;
-  object-fit: cover;
+    border-radius: 10px;
+}
+
+.club-card>:nth-child(1) img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
   border-radius: 10px;
+}
+
+.club-card>:nth-child(2){
+  font-size: 1.13rem;
+  margin-bottom: 6px;
+}
+
+.club-card>:nth-child(3){
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: gray;
 }
 
 .club-btn {
@@ -244,6 +263,7 @@ section:hover {
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-top: 20px;
 }
 
 .club-btn:hover {
@@ -266,4 +286,81 @@ section:hover {
     height: 270px;
   }
 
+}
+
+
+/***lost and found**/
+
+.section-lost {
+  width: 80vw;
+  margin: auto;
+  padding: 5rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-lost>:nth-child(1) {
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: inline-block;
+  border-bottom: 3px solid #111;
+  padding-bottom: 4px;
+  text-shadow: 1px 1px 0 #00000010;
+}
+
+.card-lost {
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid #e7e5e4;
+  width: 23%;
+  height: 260px;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 24px;
+  transition: 0.25s ease;
+}
+
+.card-lost>:nth-child(1) {
+  color: green;
+  font-size: 1.6rem;
+  word-spacing: -2px;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 35px;
+}
+
+.card-lost>:nth-child(2) {
+  color: #555;
+  font-size: 0.95rem;
+  word-spacing: -1px;
+  line-height: 1.5;
+}
+
+.card-lost>:nth-child(3){
+  font-size: 0.875rem;
+  line-height: 1.25rem;  
+  color: rgb(107 114 128);
+  margin-top: 0.5rem; 
+}
+
+.club-index{
+  background-color: white;
+  border: 1px solid #e7e5e4;
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: 0.3s ease;
+  height: 160px;
+}
+
+.club-index h4{
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.club-index p{
+  font-size: 1rem;
+  color: gray;
 }
