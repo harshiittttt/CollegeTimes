@@ -2,7 +2,7 @@
 
 A comprehensive web platform designed to enhance the college experience by connecting students and streamlining campus life management.
 
-![CollegeTimes Logo](main_logo.png)
+
 
 ## 📋 Overview
 
